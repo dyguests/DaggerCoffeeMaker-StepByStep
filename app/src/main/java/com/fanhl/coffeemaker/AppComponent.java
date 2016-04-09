@@ -1,7 +1,6 @@
 package com.fanhl.coffeemaker;
 
 import com.fanhl.coffeemaker.machine.MachineModule;
-import com.fanhl.coffeemaker.ui.MainActivity;
 
 import javax.inject.Singleton;
 
@@ -12,6 +11,14 @@ import dagger.Component;
  */
 @Singleton//2.2.1.2.2
 @Component(modules = {MachineModule.class})//2.2.3.4.1
-public interface AppComponent {
-    void inject(MainActivity activity);//2.2.2.1.1
+public interface AppComponent extends AppGraph {
+    //3.1.1.2
+    final class Initializer {
+        private Initializer() {
+        }
+
+        public static AppComponent init() {
+            return DaggerAppComponent.builder().build();
+        }
+    }
 }
