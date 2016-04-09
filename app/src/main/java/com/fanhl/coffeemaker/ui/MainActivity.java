@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.fanhl.coffeemaker.App;
 import com.fanhl.coffeemaker.R;
 import com.fanhl.coffeemaker.machine.CoffeeMaker;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        ((App) getApplication()).component().inject(this);//2.2.2.2.1
     }
 
     @OnClick(R.id.brew)
