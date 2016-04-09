@@ -8,6 +8,8 @@ import com.fanhl.coffeemaker.App;
 import com.fanhl.coffeemaker.R;
 import com.fanhl.coffeemaker.machine.CoffeeMaker;
 
+import javax.inject.Inject;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.result)
     TextView mResult;
 
+    //2.2.3.3.1
+    @Inject
     CoffeeMaker coffeeMaker;//2.1.2.1
 
     @Override
