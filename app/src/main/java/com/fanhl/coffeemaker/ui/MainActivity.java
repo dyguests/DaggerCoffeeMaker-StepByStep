@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.result)
     TextView mResult;
 
-    //2.2.3.3.1
-    @Inject
+    @Inject//2.2.3.3.1
     CoffeeMaker coffeeMaker;//2.1.2.1
 
     @Override
