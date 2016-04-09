@@ -27,14 +27,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'//1.2.6
+    }
+    lintOptions {
+        abortOnError false//1.2.7
+    }
 }
 
 dependencies {
+    provided 'javax.annotation:jsr250-api:1.0'//1.2.3
+    compile 'com.google.dagger:dagger-compiler:2.0.2'//1.2.4
+    compile 'com.google.dagger:dagger:2.0.2'//1.2.4
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
-    provided 'javax.annotation:jsr250-api:1.0'//1.2.3
-    compile 'com.google.dagger:dagger:2.3'//1.2.4
-    apt 'com.google.dagger:dagger-compiler:2.3'//1.2.4
     compile 'com.jakewharton:butterknife:7.0.1'//1.2.5
 }
