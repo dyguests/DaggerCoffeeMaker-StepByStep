@@ -10,9 +10,17 @@ import dagger.Provides;
  */
 @Module//2.2.3.1.1
 public class MachineModule {
+
+    //4.1.4.1
+    @Singleton
+    @Provides
+    Pump providePump() {
+        return new Thermosiphon();
+    }
+
     @Singleton//2.2.3.2.2
     @Provides//2.2.3.2.1
-    CoffeeMaker provideCoffeeMaker() {
-        return new CoffeeMaker();
+    CoffeeMaker provideCoffeeMaker(Pump pump) {
+        return new CoffeeMaker(pump);//4.1.3.1
     }
 }
