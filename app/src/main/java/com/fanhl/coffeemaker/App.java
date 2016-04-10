@@ -11,7 +11,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        graph = AppComponent.Initializer.init();//3.1.3.2
+        graph = AppComponent.Initializer.init(this);//4.2.4.6
     }
 
     //3.1.3.3

@@ -1,5 +1,7 @@
 package com.fanhl.coffeemaker;
 
+import android.content.Context;
+
 import com.fanhl.coffeemaker.machine.MachineModule;
 
 import javax.inject.Singleton;
@@ -17,8 +19,10 @@ public interface AppComponent extends AppGraph {
         private Initializer() {
         }
 
-        public static AppComponent init() {
-            return DaggerAppComponent.builder().build();
+        public static AppComponent init(Context context) {
+            return DaggerAppComponent.builder()
+                    .machineModule(new MachineModule(context))//4.2.4.5
+                    .build();
         }
     }
 }
